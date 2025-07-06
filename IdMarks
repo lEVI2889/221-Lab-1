@@ -10,21 +10,16 @@ public class Q7 {
 
     public static void main(String[] args) throws IOException {
 
-        InputStreamReader in= new InputStreamReader(System.in);
 
-        BufferedReader br=new BufferedReader(in);
+        BufferedReader task=new BufferedReader (new InputStreamReader(System.in));
 
 
 
         int n=Integer.parseInt(br.readLine());
 
-        String s=br.readLine();
+        String[] id=task.readLine().trim().split("\\s+);
 
-        String s2=br.readLine();
-
-        String[] marks=s2.split(" ");
-
-        String[] id=s.split(" ");
+        String[] marks=task.readLine().trim().split("\\s+);
 
         int swap=0;
 
@@ -32,7 +27,7 @@ public class Q7 {
 
             int max=0;
 
-            int maxidx=-1;
+            int maxidx=-999;
 
             
 
@@ -68,6 +63,21 @@ public class Q7 {
 
             if(maxidx!=i){
 
+              swapper(i, j, swap);
+
+            }
+
+        }
+
+        System.out.println("Minimum swaps: "+swap);
+
+        for(int k=0;k<n;k++){
+
+            System.out.println("ID: "+id[k]+" Mark: "+marks[k]);
+
+        }
+public static void swapper(int i, int j, int swap){
+
             String temp=marks[i];
 
             String tempid=id[i];
@@ -82,17 +92,7 @@ public class Q7 {
 
             swap++;
 
-            }
-
-        }
-
-        System.out.println("Minimum swaps: "+swap);
-
-        for(int k=0;k<n;k++){
-
-            System.out.println("ID: "+id[k]+" Mark: "+marks[k]);
-
-        }
+}
 
         br.close();
 
