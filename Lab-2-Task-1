@@ -1,0 +1,31 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class TwoSumTrouble {
+    public static void main(String[] args) throws IOException {
+        BufferedReader task = new BufferedReader(new InputStreamReader(System.in));
+        String[] LenNSum = task.readLine().trim().split("\\s+");
+        int[] lenNSumInt = new int[2];
+        for (int i = 0; i < lenNSumInt.length; i++) {
+            lenNSumInt[i] = Integer.parseInt(LenNSum[i]);
+        }
+        String [] array = task.readLine().trim().split("\\s+");
+        int [] intarray = new int[array.length];
+        for (int i = 0; i < intarray.length; i++) {
+            intarray[i] = Integer.parseInt(array[i]);
+        }
+        boolean found = false;
+        for (int i = 0; i < intarray.length-1; i++) {
+            int tempSum = 0;
+            for (int j = i+1; j < intarray.length; j++) {
+                tempSum = intarray[i] + intarray[j];
+                if(tempSum == lenNSumInt[1]) {
+                    found = true;
+                    System.out.println((i+1) + " " + (j+1));
+                    return;
+                }
+            }
+        }
+        if(!found) System.out.println(-1);
+    }
+}
